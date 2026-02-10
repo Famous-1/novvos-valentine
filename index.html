@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine Quiz ❤️</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["system-ui", "sans-serif"],
+            },
+            colors: {
+              lilac: "#7C3AED",
+              cream: "#FDF5E6",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center px-4"
+  >
+    <div
+      class="w-full max-w-xl bg-cream/90 rounded-3xl shadow-2xl border border-white/40 backdrop-blur-xl px-6 py-8 sm:px-10 sm:py-10"
+    >
+      <!-- Score -->
+      <div
+        id="scoreBar"
+        class="mb-6 text-center rounded-2xl bg-white/80 text-slate-800 font-semibold py-2 shadow-sm"
+      >
+        Score: <span id="scoreValue">0</span>/4
+      </div>
+
+      <!-- Question container -->
+      <div id="questionsWrapper" class="space-y-8">
+        <!-- Question 1 -->
+        <section data-question="q1" class="question-block">
+          <h2
+            class="text-xl sm:text-2xl font-semibold text-slate-900 mb-6 text-center"
+          >
+            Where did we meet?
+          </h2>
+          <ul class="space-y-3 list-none">
+            <li>
+              <button
+                data-choice="A"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  A
+                </span>
+                <span class="text-left flex-1">The church.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="B"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  B
+                </span>
+                <span class="text-left flex-1">The supermarket.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="C"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  C
+                </span>
+                <span class="text-left flex-1">The movies.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="D"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  D
+                </span>
+                <span class="text-left flex-1">Your Father’s House.</span>
+              </button>
+            </li>
+          </ul>
+          <p class="feedback mt-4 text-center text-base font-medium"></p>
+        </section>
+
+        <!-- Question 2 -->
+        <section data-question="q2" class="question-block hidden">
+          <h2
+            class="text-xl sm:text-2xl font-semibold text-slate-900 mb-6 text-center"
+          >
+            When is our anniversary?
+          </h2>
+          <ul class="space-y-3 list-none">
+            <li>
+              <button
+                data-choice="A"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  A
+                </span>
+                <span class="text-left flex-1">1st of October.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="B"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  B
+                </span>
+                <span class="text-left flex-1">December 28th.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="C"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  C
+                </span>
+                <span class="text-left flex-1">July 15th.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="D"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  D
+                </span>
+                <span class="text-left flex-1">July 14th.</span>
+              </button>
+            </li>
+          </ul>
+          <p class="feedback mt-4 text-center text-base font-medium"></p>
+        </section>
+
+        <!-- Question 3 -->
+        <section data-question="q3" class="question-block hidden">
+          <h2
+            class="text-xl sm:text-2xl font-semibold text-slate-900 mb-6 text-center"
+          >
+            Where do you want to travel next?
+          </h2>
+          <ul class="space-y-3 list-none">
+            <li>
+              <button
+                data-choice="A"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  A
+                </span>
+                <span class="text-left flex-1">Bora Bora.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="B"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  B
+                </span>
+                <span class="text-left flex-1">Japan.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="C"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  C
+                </span>
+                <span class="text-left flex-1">London (Osapa).</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="D"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  D
+                </span>
+                <span class="text-left flex-1">Singapore.</span>
+              </button>
+            </li>
+          </ul>
+          <p class="feedback mt-4 text-center text-base font-medium"></p>
+        </section>
+
+        <!-- Question 4 -->
+        <section data-question="q4" class="question-block hidden">
+          <h2
+            class="text-xl sm:text-2xl font-semibold text-slate-900 mb-4 text-center"
+          >
+            Where did we take this picture?
+          </h2>
+
+          <!-- Photo placeholder: replace src with your own picture path -->
+          <div class="flex justify-center mb-5">
+            <img
+              src="assets/novvo.png"
+              alt="Us together"
+              class="w-48 h-64 object-cover rounded-2xl shadow-md border border-white/70"
+            />
+          </div>
+
+          <ul class="space-y-3 list-none">
+            <li>
+              <button
+                data-choice="A"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  A
+                </span>
+                <span class="text-left flex-1">Circa Lagos.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="B"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  B
+                </span>
+                <span class="text-left flex-1">NOK by Alara.</span>
+              </button>
+            </li>
+            <li>
+              <button
+                data-choice="C"
+                class="answer-btn w-full bg-white/80 hover:bg-white text-slate-900 font-medium px-4 py-3 rounded-2xl border border-purple-200 shadow-sm transition-all flex items-center gap-3 hover:border-purple-400 hover:shadow-md hover:-translate-y-0.5"
+              >
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-purple-500 text-white text-sm font-semibold"
+                >
+                  C
+                </span>
+                <span class="text-left flex-1">Shiro Lagos.</span>
+              </button>
+            </li>
+          </ul>
+          <p class="feedback mt-4 text-center text-base font-medium"></p>
+        </section>
+
+        <!-- Final Valentine card -->
+        <section data-question="final" class="question-block hidden">
+          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-6 text-center">
+            Will you be my Valentine?
+          </h2>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              id="yesBtn"
+              class="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-0.5"
+            >
+              Yes ❤️
+            </button>
+            <button
+              id="noBtn"
+              class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-2xl shadow-lg transition-transform transform hover:-translate-y-0.5"
+            >
+              No
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Overlay for special messages -->
+      <div
+        id="overlay"
+        class="fixed h-full p-12 rounded-[26px] w-full inset-0 bg-black/50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity"
+      >
+        <div
+          id="overlayContent"
+          class="px-6 py-4 rounded-2xl bg-slate-900 text-center text-lg sm:text-xl font-semibold text-red-400 shadow-2xl border border-red-500/70"
+        >
+          <!-- Filled dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
